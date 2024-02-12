@@ -6,7 +6,28 @@ h2 {
 	color: blueviolet;
 }
 
-/* Child Rule - Parent is div, Child is p */
+/* Child Rule - Parent is div, Child is p
 div > p {
 	color: firebrick;
+}
+OR */
+
+/* Seperates from other 'div's using its class */
+.box > p {
+	color: firebrick;
+}
+
+/* Descendent Rule - Multilevel depth selector */
+.box li {
+	color: blue;
+}
+
+/* Chaining Rule - Apply where ALL selectors are true */
+li.done {
+	color: seagreen;
+}
+
+/* Combining combiners */
+ul p.done {
+	font-size: 0.5rem;
 }
