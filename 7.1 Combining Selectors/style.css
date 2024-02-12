@@ -1,0 +1,12 @@
+/* Write your code here: */
+
+/* Group Rule - Multiple Selectors */
+h1,
+h2 {
+	color: blueviolet;
+}
+
+/* Child Rule - Parent is div, Child is p */
+div > p {
+	color: firebrick;
+}
