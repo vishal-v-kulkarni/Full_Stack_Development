@@ -41,3 +41,29 @@ footer {
 .right.card {
 	float: right;
 }
+
+@media (max-width: 680px) {
+	.logo {
+		width: 100px;
+	}
+	.heading {
+		font-size: 3.5rem;
+		text-align: center;
+	}
+
+	.tile-image {
+		width: 100%;
+		object-fit: cover;
+		padding-bottom: 10px;
+	}
+
+	.card {
+		width: 100%;
+		display: block;
+		padding-bottom: 30px;
+	}
+
+	.card p {
+		text-align: justify;
+	}
+}
