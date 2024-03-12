@@ -36,7 +36,10 @@
 			.pricing-plan {
 				background-color: #f2f3f3;
 				text-align: center;
-				padding: 15px 40px;
+				flex: 1;
+				max-width: 400px;
+				padding: 20px;
+				border-radius: 5px;
 			}
 
 			.pricing-container {
@@ -59,6 +62,10 @@
 
 			/* Hint: What can you do with a media query and flexbox? */
 			@media (max-width: 1250px) {
+				.pricing-container {
+					flex-direction: column;
+					height: 100%;
+				}
 			}
 		</style>
 	</head>
