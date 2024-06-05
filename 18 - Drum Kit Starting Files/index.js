@@ -1,38 +1,50 @@
 var numberOfDrumButtons = document.querySelectorAll(".drum").length;
 
+//Detecting Button Press
 for (var i = 0; i < numberOfDrumButtons; i++) {
 	document.querySelectorAll(".drum")[i].addEventListener("click", function () {
 		var drumName = this.innerHTML;
-		var audioName = "";
-		switch (drumName) {
-			case "w":
-				audioName = "tom-1.mp3";
-				break;
-			case "a":
-				audioName = "tom-2.mp3";
-				break;
-			case "s":
-				audioName = "tom-3.mp3";
-				break;
-			case "d":
-				audioName = "tom-4.mp3";
-				break;
-			case "j":
-				audioName = "snare.mp3";
-				break;
-			case "k":
-				audioName = "crash.mp3";
-				break;
-			case "l":
-				audioName = "kick-bass.mp3";
-				break;
-			default:
-				console.log(drumName);
-		}
+		makeDrumSounds(drumName);
+	});
+}
 
+//Detecting Key Press
+document.addEventListener("keydown", function (event) {
+	makeDrumSounds(event.key);
+});
+
+function makeDrumSounds(key) {
+	var audioName = "";
+	switch (key) {
+		case "w":
+			audioName = "tom-1.mp3";
+			break;
+		case "a":
+			audioName = "tom-2.mp3";
+			break;
+		case "s":
+			audioName = "tom-3.mp3";
+			break;
+		case "d":
+			audioName = "tom-4.mp3";
+			break;
+		case "j":
+			audioName = "snare.mp3";
+			break;
+		case "k":
+			audioName = "crash.mp3";
+			break;
+		case "l":
+			audioName = "kick-bass.mp3";
+			break;
+		default:
+			console.log(key);
+	}
+
+	if (audioName !== "") {
 		var audio = new Audio("./sounds/" + audioName);
 		audio.play();
-	});
+	}
 }
 
 // function add(num1, num2) {
