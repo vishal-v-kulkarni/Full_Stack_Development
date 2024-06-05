@@ -23,8 +23,11 @@ for (var i = 0; i < numberOfDrumButtons; i++) {
 			case "k":
 				audioName = "crash.mp3";
 				break;
-			default:
+			case "l":
 				audioName = "kick-bass.mp3";
+				break;
+			default:
+				console.log(drumName);
 		}
 
 		var audio = new Audio("./sounds/" + audioName);
