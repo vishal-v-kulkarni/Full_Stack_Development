@@ -1,3 +1,3 @@
-$("h1").css("color", "red");
-
-$("button").css("color", "red");
+$(document).keydown(function () {
+	$("h1").text(event.key);
+});
