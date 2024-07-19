@@ -25,7 +25,9 @@ app.get("/", (req, res) => {
 
 app.post("/submit", (req, res) => {
 	res.send(
-		`<h1>Your Bandname is: </h1><h2>${req.body.street + req.body.pet}</h2>`
+		`<h1>Your Bandname is: </h1><h2>${
+			req.body["street"] + req.body["pet"]
+		}</h2>`
 	);
 });
 
