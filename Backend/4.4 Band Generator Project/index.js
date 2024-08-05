@@ -30,17 +30,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(randomNameDate);
 
 app.get("/", (req, res) => {
-	const data = {
-		year: year,
-	};
-
-	res.render("index.ejs", data);
+	res.render("index.ejs");
 });
 
 app.post("/submit", (req, res) => {
 	const data = {
 		bandName: bandName,
-		year: year,
 	};
 
 	res.render("index.ejs", data);

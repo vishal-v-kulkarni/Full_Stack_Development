@@ -6,7 +6,9 @@
     Show the default h1 below -->
 <h1><% if (locals.bandName) { %>
     <%= bandName  %>
-<% } %></h1>
+<% }else{ %>
+    Welcome to Band Name Generator!
+<%} %></h1>
 
 <form action="/submit" method="POST">
 	<input type="submit" value="Generate Name" />
