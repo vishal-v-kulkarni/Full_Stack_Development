@@ -41,7 +41,7 @@ app.post("/", async (req, res) => {
 	} catch (error) {
 		console.error("Failed to make request:", error.message);
 		res.render("index.ejs", {
-			error: error.message,
+			error: "No activities match this criteria!",
 		});
 	}
 

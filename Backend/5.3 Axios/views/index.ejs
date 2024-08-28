@@ -53,10 +53,10 @@
           </span>
         </div>
       </article>
-      <% } else { %>
+      <% } else if(locals.error) { %>
 
       <div id="tag-error" class="tag-error">
-        No activities match this criteria!
+        <%= error%>
       </div>
       <% } %>
     </section>
