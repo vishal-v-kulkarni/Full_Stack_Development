@@ -25,10 +25,7 @@ app.get("/noAuth", async (req, res) => {
 
 		res.render("index.ejs", { content: JSON.stringify(response.data) });
 	} catch (error) {
-		console.error("Failed to make request:", error.message);
-		res.render("index.ejs", {
-			content: error,
-		});
+		res.status(404).send(error.message);
 	}
 });
 
@@ -54,10 +51,7 @@ app.get("/basicAuth", async (req, res) => {
 		}); //Return JS Object
 		res.render("index.ejs", { content: JSON.stringify(response.data) });
 	} catch (error) {
-		console.error("Failed to make request:", error.message);
-		res.render("index.ejs", {
-			content: error,
-		});
+		res.status(404).send(error.message);
 	}
 });
 
@@ -67,16 +61,20 @@ app.get("/apiKey", async (req, res) => {
 	//HINT: You need to provide a query parameter of apiKey in the request.
 
 	try {
-		const response = await axios.get(
-			API_URL + "/filter?score=7&apiKey=" + yourAPIKey
-		); //Return JS Object
+		//const response = await axios.get(API_URL + "/filter?score=7&apiKey=" + yourAPIKey); //Return JS Object
+
+		// OR
+
+		const response = await axios.get(API_URL + "/filter", {
+			params: {
+				score: 5,
+				apiKey: yourAPIKey,
+			},
+		});
 
 		res.render("index.ejs", { content: JSON.stringify(response.data) });
 	} catch (error) {
-		console.error("Failed to make request:", error.message);
-		res.render("index.ejs", {
-			content: error,
-		});
+		res.status(404).send(error.message);
 	}
 });
 
@@ -102,10 +100,7 @@ app.get("/bearerToken", async (req, res) => {
 
 		res.render("index.ejs", { content: JSON.stringify(response.data) });
 	} catch (error) {
-		console.error("Failed to make request:", error.message);
-		res.render("index.ejs", {
-			content: error,
-		});
+		res.status(404).send(error.message);
 	}
 });
 
