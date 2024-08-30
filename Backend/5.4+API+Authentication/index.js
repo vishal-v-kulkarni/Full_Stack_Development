@@ -67,7 +67,7 @@ app.get("/apiKey", async (req, res) => {
 
 		const response = await axios.get(API_URL + "/filter", {
 			params: {
-				score: 5,
+				score: 7,
 				apiKey: yourAPIKey,
 			},
 		});
