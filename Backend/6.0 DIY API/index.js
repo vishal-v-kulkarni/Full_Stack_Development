@@ -18,7 +18,7 @@ app.get("/random", (req, res) => {
 app.get("/jokes/:id", (req, res) => {
 	const id = parseInt(req.params.id);
 	const joke = jokes.find((joke) => joke.id === id);
-	res.json(joke ? joke : "Joke not found");
+	res.json(joke || "Joke not found");
 });
 
 //3. GET a jokes by filtering on the joke type
@@ -78,8 +78,34 @@ app.patch("/jokes/:id", (req, res) => {
 });
 
 //7. DELETE Specific joke
+app.delete("/jokes/:id", (req, res) => {
+	const id = parseInt(req.params.id);
+	const searchIndex = jokes.findIndex((joke) => joke.id === id);
+	//console.log(searchIndex);
+	if (searchIndex > -1) {
+		jokes.splice(searchIndex, 1);
+		res.json(`OK: Joke with id ${id} was deleted!`);
+	} else {
+		res.status(404).json({
+			error: `Joke with id ${id} not found. No jokes were deleted!`,
+		});
+	}
+});
 
 //8. DELETE All jokes
+app.delete("/all", (req, res) => {
+	const userKey = req.query.key;
+	if (jokes.length > 0 && masterKey === userKey) {
+		jokes.splice(0);
+		// OR
+		//jokes = [];
+		res.json("All jokes were deleted!");
+	} else if (masterKey !== userKey) {
+		res.status(401).json({ error: "Unauthorized request!" });
+	} else {
+		res.status(404).json({ error: "No jokes were found to delete!" });
+	}
+});
 
 app.listen(port, () => {
 	console.log(`Successfully started server on port ${port}.`);
